@@ -1,0 +1,7 @@
+FROM node:alpine
+WORKDIR "/app"
+COPY ./package.json ./
+RUN npm install
+COPY . .
+# "dev" is a script defined in the package.json file that runs nodemon
+CMD ["npm", "run", "dev"]
