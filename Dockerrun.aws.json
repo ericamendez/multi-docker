@@ -1,7 +1,6 @@
 {
     "AWSEBDockerrunVersion": 2,
-    "containerDefinitions": [
-        {
+    "containerDefinitions": [{
             "name": "client",
             "image": "ericamendez/multi-client",
             "hostname": "client",
@@ -17,7 +16,7 @@
         },
         {
             "name": "worker",
-            "image": "ericamendez/multi-worker",
+            "image": "ericamedez/multi-worker",
             "hostname": "worker",
             "essential": false,
             "memory": 128
@@ -27,12 +26,10 @@
             "image": "ericamendez/multi-nginx",
             "hostname": "nginx",
             "essential": true,
-            "portMappings": [
-                {
-                    "hostPort": 80,
-                    "containerPort": 80
-                }
-            ],
+            "portMappings": [{
+                "hostPort": 80,
+                "containerPort": 80
+            }],
             "links": ["client", "server"],
             "memory": 128
         }
